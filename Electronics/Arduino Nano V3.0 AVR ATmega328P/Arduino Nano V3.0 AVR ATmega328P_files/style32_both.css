@@ -1,0 +1,103 @@
+.send-form { width:50%;}
+.send-form p { margin-bottom:5px!important;}
+.send-form table { width:100%;}
+.send-form td { vertical-align:middle;}
+.send-form input[type="text"], .send-form input[type="password"], .send-form textarea { width:100%; padding:5px; margin:0 0 5px 0; box-sizing:border-box; border:1px solid #ccc;}
+
+.b_send_message { border:none; background:#009FA4; border-bottom:3px solid #008184; color:#fff; text-align:center; display:inline-block; vertical-align:top; padding:0 10px; min-width:100px; height:30px; line-height:28px; box-sizing:border-box; transition:0.5s;}
+.b_send_message:hover {border-bottom:3px solid #007477;}
+
+.section {}
+ul.tabs {
+	height: 30px;
+	line-height: 30px;
+	list-style: none;
+	margin:0;
+}
+div.tabs {position:relative; clear:both; border-top:2px solid #2c6a98; padding-top:20px;} 
+ul.tabs li {
+float: left;
+box-sizing:border-box;
+display: inline;
+cursor: pointer;
+position: relative;
+height:30px;
+line-height:30px;
+margin: 0 -1px 0 0;
+padding:0 20px;
+text-decoration: none;
+background: #eee;
+text-align:center;
+border:1px solid #ccc;
+border-bottom:none;
+}
+
+ul.tabs li:hover,
+ul.vertical .tabs li:hover a { text-decoration:underline;}
+ul.tabs li.current {
+background:#2c6a98;
+    text-decoration:none;
+	border:1px solid #2c6a98;
+	font-weight:normal;
+	border-bottom:none; color:white;
+}
+.box {
+	display: none;
+	padding: 0 5px;
+}
+.box.visible {
+	display: block;
+}
+
+
+.Special { display:flex; flex-wrap: wrap; justify-content: flex-start;}
+.Special div { border:1px solid #ddd; width:16.66%; box-sizing:border-box; position:relative; margin:-1px 0 0 -1px!important;}
+.Special a { display:block; text-align:center; padding:5px; text-decoration:none;}
+.Special img { max-width:100%; max-height:100px; display:block; margin: 0 auto 10px;}
+.Special p { color:#000; font-weight:bold;}
+
+
+
+
+.AjaxOrder input[type="text"], .AjaxOrder input[type="password"], .AjaxOrder textarea { width:220px; padding:3px;}
+.AjaxOrder select { width:232px; padding:3px;}
+.AjaxOrder input[type="text"]:hover, .AjaxOrder input[type="password"]:hover, .AjaxOrder textarea:hover, .AjaxOrder select:hover, .focus { border: 1px solid #aa88ff!important; background-color:#FFF3C4;}
+.AjaxOrder p, .AjaxOrder div { margin-bottom:7px;}
+.AjaxOrder h5 { margin-bottom:10px; font-size:14px;}
+.AjaxOrder .edit { display:block; margin-bottom:10px; float:right; text-decoration:underline;}
+.AjaxOrder .cart { padding:10px; background:#f5f5f5; border-bottom:3px solid #ddd;}
+.AjaxOrder .cart div { margin:30px 0; text-align:center; font-family:Tahoma, Geneva, sans-serif; font-size:20px;}
+.AjaxOrder .cart td { padding:5px;}
+.AjaxOrder .cart td.nopad { padding-bottom:0px;}
+.AjaxOrder .line { border-bottom:1px dashed #ccc;}
+
+.change_address { display:flex; flex-wrap: wrap; justify-content: flex-start;}
+.change_address > div { box-sizing:border-box;}
+.change_address input[type="text"], .change_address textarea, .change_address select { box-sizing:border-box; padding:7px; width:100%;}
+.flex1 { width:25%; padding-right:5px;}
+.flex2 { width:35%; padding: 0 5px;}
+.flex3 { width:40%; padding-left:5px;}
+
+
+
+@media screen and (max-width: 1100px) {
+	.Special div { width:20%;}
+}
+
+@media screen and (max-width: 800px) {
+	.flex1 { width:50%; padding-right:5px;}
+	.flex2 { width:50%; padding-left:5px}
+	.flex3 { width:100%; padding:0px;}
+	.Special div { width:25%;}
+	.Special p { font-weight:normal; font-size:12px; line-height:14px;}
+}
+@media screen and (max-width: 700px) {
+	.send-form { width:100%;}
+	ul.tabs li { width:33.333%; padding: 0 10px;}
+	.Special div { width:33.333%;}
+}
+@media screen and (max-width: 600px) {
+	.flex1 { width:100%; padding:0px;}
+	.flex2 { width:100%; padding:0px;}
+}
+

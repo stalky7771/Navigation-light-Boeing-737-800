@@ -11,6 +11,8 @@ const int POWER_BLOCK_PIN = 9; // ШИМ
 const int STROBE_1 = 8;
 const int STROBE_2 = 7;
 const int POWER_OFF_PIN = 13;
+const int WAKEUP_PIN = 3;
+const int TEST_PIN = 5;
 
 const int dimmerPin = 11;  // переменная с номером пина пьезоэлемента
 const int ledPin = 13;  // переменная с номером пина светодиода
@@ -41,7 +43,6 @@ void dimmerAntiCollisionOnTick(int br) { analogWrite(currentAntiCollisionPin, br
 void dimmerPowerBlockOnMin()
 {  
   isPowerBlockEnabled = false;
-
   digitalWrite(POWER_OFF_PIN, 0);
 }
 
@@ -63,6 +64,8 @@ DFMiniMp3<HardwareSerial, Mp3Notify> mp3(Serial);   //Create the UART connection
 
 void setup()
 {
+  pinMode(WAKEUP_PIN, INPUT_PULLUP);
+
   Serial.begin(9600); 
   mp3.begin();
 
@@ -70,6 +73,9 @@ void setup()
   pinMode(ANTICOLLISION_2, OUTPUT);
   pinMode(STROBE_1, OUTPUT);
   pinMode(STROBE_2, OUTPUT);
+
+  //pinMode(TEST_PIN, OUTPUT);
+  //digitalWrite(TEST_PIN, 1);
 
   pinMode(POWER_OFF_PIN, OUTPUT);
   digitalWrite(POWER_OFF_PIN, 1);
@@ -88,8 +94,15 @@ void setup()
   mp3Thread.setInterval(1000);
   
   powerBlockOffThread.onRun(powerBlockOffCallback);
-  powerBlockOffThread.setInterval(10000);
+  powerBlockOffThread.setInterval(45000);
 }
+
+/*void wakeup()
+{
+  power.wakeUp();
+  powerBlockOffThread.onRun(powerBlockOffCallback);
+  powerBlockOffThread.setInterval(10000);
+}*/
 
 void loop()
 {
@@ -108,7 +121,7 @@ void loop()
 
 void powerBlockOffCallback()
 {
-  powerBlockOffThread.enabled = false;
+  //powerBlockOffThread.enabled = false;
   isPowerBlockEnabled = true;
 }
 
@@ -143,10 +156,10 @@ void mp3TimerCallback()
   
   mp3Thread.enabled = false;
   randomSeed(analogRead(0));
-  int trackNumber = random(0, 4);
+  int trackNumber = random(1, 11);
   mp3.playMp3FolderTrack(trackNumber);  // Play audio track 0001
-  delay(500);
-  mp3.setVolume(10); 
+  delay(2000);
+  mp3.setVolume(28); 
 }
 
 void toggleStrobePin()

@@ -37,7 +37,7 @@ void toggleAntiCollisionPin()
 
 void dimmerAntiCollisionOnMin() { toggleAntiCollisionPin(); }
 void dimmerAntiCollisionOnMax() {}
-void dimmerAntiCollisionOnTick(int br) { analogWrite(currentAntiCollisionPin, br); }
+void dimmerAntiCollisionOnTick(int br) { /*analogWrite(currentAntiCollisionPin, br);*/ }
 
 // POWER DIMMER ********************************************************************
 void dimmerPowerBlockOnMin()
@@ -136,8 +136,15 @@ void antiCollisionTimerCallback()
 void strobeTimerCallback()
 {
   digitalWrite(currentStrobePin, 1);
+  digitalWrite(ANTICOLLISION_1, 1);
+  digitalWrite(ANTICOLLISION_2, 1);
+  
   delay(50);
   digitalWrite(currentStrobePin, 0);  
+
+  delay(50);
+  digitalWrite(ANTICOLLISION_1, 0);
+  digitalWrite(ANTICOLLISION_2, 0);
 
   if (currentStrobePin == STROBE_1)
   {
